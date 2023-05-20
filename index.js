@@ -10,6 +10,7 @@ const http = require("http")
 // const exportsFronAnother = require("./another")
 // console.log({exportsFronAnother});
 
+const fs = require("fs")
 // https. server request escuchador de evento
 
 
@@ -21,19 +22,29 @@ function requestController(req, res){
     console.log({url, method});
 
     if(method === "GET" && url === "/"){
-        res.setHeader("Content-type", "text/html; charset=utf-8");
-        res.write("<h1>Holas Javier Masaquiza pagina PRINCIPAL </h1>");
-        res.end()
+        res.setHeader("Content-type", "text/html");
+        fs.readFile('./public/index.html', function(err, file){
+            if(err){
+                console.log("hubo un ERROR");
+            }
+            res.write(file)
+            res.end()
+        })
         return
     }
     if(method === "GET" && url === "/about"){
-        res.setHeader("Content-type", "text/html; charset=utf-8")
-        res.write("<h1>Hola mundo desde la pagina About</h1>")
-        res.end()
+        res.setHeader("Content-type", "text/html")
+        fs.readFile('./public/about.html', function(err, file){
+            if(err){
+                console.log("hubo un ERROR");
+            }
+            res.write(file)
+            res.end()
+        })
         return
     }
     res.setHeader("Content-type", "text/html; charset=utf-8")
-    res.write("<h1>Pagina no encotrada</h1>")
+    res.write("<h1>Pagina no encotrada🙀</h1>")
     res.end()
 }
 
