@@ -10,10 +10,31 @@ const http = require("http")
 // const exportsFronAnother = require("./another")
 // console.log({exportsFronAnother});
 
+// https. server request escuchador de evento
+
+
 //un funcion para controlar las peticiones 
-function requestController(){
+function requestController(req, res){
+    const url = req.url
+    const method = req.method
     // logica de nuestro funcion
-    console.log('hola javier masaquiza');
+    console.log({url, method});
+
+    if(method === "GET" && url === "/"){
+        res.setHeader("Content-type", "text/html; charset=utf-8");
+        res.write("<h1>Holas Javier Masaquiza pagina PRINCIPAL </h1>");
+        res.end()
+        return
+    }
+    if(method === "GET" && url === "/about"){
+        res.setHeader("Content-type", "text/html; charset=utf-8")
+        res.write("<h1>Hola mundo desde la pagina About</h1>")
+        res.end()
+        return
+    }
+    res.setHeader("Content-type", "text/html; charset=utf-8")
+    res.write("<h1>Pagina no encotrada</h1>")
+    res.end()
 }
 
 // crear un servidor 
