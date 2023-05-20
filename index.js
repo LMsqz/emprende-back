@@ -1,12 +1,12 @@
 const http = require("http")
 // expoortar
-const exportsFronAnother = require("./another")
-console.log({exportsFronAnother});
+// const exportsFronAnother = require("./another")
+// console.log({exportsFronAnother});
 
 //un funcion para controlar las peticiones 
 function requestController(){
     // logica de nuestro funcion
-    console.log({dir: __dirname});
+    console.log('hola javier masaquiza'''');
 }
 
 // crear un servidor 
