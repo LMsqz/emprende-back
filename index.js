@@ -6,7 +6,7 @@ const http = require("http")
 //un funcion para controlar las peticiones 
 function requestController(){
     // logica de nuestro funcion
-    console.log('hola javier masaquiza'''');
+    console.log('hola javier masaquiza');
 }
 
 // crear un servidor 
