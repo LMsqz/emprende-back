@@ -1,10 +1,8 @@
 // caso de nos de NPM utilisar una variable
 require('dotenv').config()
-
 //configuracion de puertos dotenv caso anterior
 // const dotenv = require("dontenv")
 // dotenv.config()
-
 const http = require("http")
 // expoortar
 // const exportsFronAnother = require("./another")
@@ -34,7 +32,7 @@ function requestController(req, res){
     }
     if(method === "GET" && url === "/about"){
         res.setHeader("Content-type", "text/html")
-        fs.readFile('./public/about.html', function(err, file){
+        fs.readFile("./public/about.html", function(err, file){
             if(err){
                 console.log("hubo un ERROR");
             }
