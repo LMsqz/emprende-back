@@ -1,3 +1,10 @@
+// caso de nos de NPM utilisar una variable
+require('dotenv').config()
+
+//configuracion de puertos dotenv caso anterior
+// const dotenv = require("dontenv")
+// dotenv.config()
+
 const http = require("http")
 // expoortar
 // const exportsFronAnother = require("./another")
@@ -12,5 +19,10 @@ function requestController(){
 // crear un servidor 
 const server = http.createServer(requestController)
 
+// hay echar el puerto donde va escuchar render
+const PORT = process.env.PORT
+
 // donde se va escuchar 
-server.listen(4000)
+server.listen(PORT, function(){
+    console.log("aplicacion corriendo en puerto" + PORT);
+})
